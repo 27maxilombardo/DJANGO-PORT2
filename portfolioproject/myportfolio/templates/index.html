@@ -1,0 +1,281 @@
+{% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio-Web</title>
+    {% bootstrap_css %}
+
+    <!-- BOOTSTRAP5 -->
+   
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS -->
+    <link type="text/css"  rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- D3.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
+    <!--ANIMATE-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <!-- NAV-BAR -->
+    <div class="container-fluid" id="navbar1">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top " id="navbar11">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><strong>Dev</strong> Maximiliano Lombardo </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#descripcion">Acerca de mi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto ">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#proyecto">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Detalles</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="container contenido" id="contenido">
+        <div class="row">
+            <!-- Columna de la tarjeta -->
+            <div class="col-md-6">
+                <div class="card" style="width: 20rem;" >
+                    <img src="{% static 'img/foto1.jpg'%}" class="card-img-top" alt="fotoperfil">
+                    <div class="card-body">
+                        <h5 class="card-title">Maximiliano Lombardo <i class="fa-brands fa-dev"></i></h5>
+                        <p class="card-text">Soy un estudiante en la actualidad en Duoc Uc sede Puerto Montt</p>
+                        <a href="https://www.linkedin.com/in/maximiliano-lombardo/" <button type="button" class="btn btn-outline-primary text-center ">Linkedin</button></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Columna del gráfico de habilidades -->
+            <div class="col-md-3">
+                <!-- Aquí se integrará el gráfico de habilidades -->
+                <svg id="skills-chart" width="400" height="300"></svg>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="descripcion">
+        <p class="descripcion">Ingeniero Informático sede Puerto Montt en la Universidad Duoc UC  <i class="fa-solid fa-building-columns"></i><br>
+        Mi nombre es Maximiliano Lombardo.<br>
+        Los Lenguajes de Programación <i class="fa-brands fa-codepen"></i> 
+        en los que estoy trabajando son JavaScript <i class="fa-brands fa-js"></i>,
+        CSS <i class="fa-brands fa-css3-alt"></i> Y HTML <i class="fa-brands fa-html5"></i><br>
+        Personalmente tengo el interés de dedicar mi carrera como programador a especializarme en el desarrollo y diseño de páginas web. Mi objetivo es aplicar mis habilidades técnicas y creativas para crear experiencias web atractivas, funcionales y eficientes. Me apasiona el proceso de transformar ideas en realidad digital y estoy comprometido a seguir aprendiendo y mejorando en este campo en constante evolución.  <i class="fa-solid fa-globe"></i><br>
+        Además, cuento con sólidas habilidades en SQL, respaldadas por dos años de experiencia trabajando con Oracle y el framework SQL Developer. Esta experiencia me ha permitido desarrollar una profunda comprensión de la gestión de datos y la manipulación de bases de datos, complementando mi enfoque en el desarrollo web.   <i class="fa-solid fa-database"></i></p>
+    </div>
+    <!--contacto-->
+    <section class="contactonuevo1" >
+
+        <div class="container" class="contactonuevo">
+    
+          <h2 class="text-center">Contact Me</h2>
+    
+          <form class="ult" method="POST" action="{% url 'contacto_nuevo' %}" id="contactForm" class="needs-validation" novalidate>
+    
+            {% csrf_token %}
+            
+            <div class="mb-3">
+    
+              <label for="name" class="form-label">Name</label>
+    
+              <input name="nombre" type="text" class="form-control shadow-lg" id="name" required>
+    
+              <div class="invalid-feedback">Please enter your name.</div>
+    
+            </div>
+    
+            <div class="mb-3">
+    
+              <label for="email" class="form-label">Email</label>
+    
+              <input name="email" type="email" class="form-control shadow-lg" id="email" required>
+    
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+    
+            </div>
+    
+            <div class="mb-3">
+    
+              <label for="message" class="form-label">Message</label>
+    
+              <textarea name="mensaje" class="form-control shadow-lg" id="message" rows="3" required></textarea>
+    
+              <div class="invalid-feedback">Please enter your message.</div>
+    
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Submit</button>
+    
+          </form>
+    
+        </div>
+    
+      </section>
+   <!--<div class="contc container " id="contacto">
+        <h2 class="titlecont">Contacto <i class="fa-solid fa-address-book" ></i></h2>
+        <form method = "POST" action="{%  url 'contacto_nuevo' %}" class="contactForm">
+            <div class="row" id="contactoid">
+                <div class="contcol col-sm-6 col-md-6 mt-5" >
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" placeholder="Nombre">
+                </div>
+                <div class="contcol col-sm-6 col-md-6 mt-5">
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="" pattern="\([0-9]{2}\) [0-9]{3}-[0-9]{4}">
+                </div>
+                <div class="contcol col-sm-6 col-md-6 mt-5">
+                    <label for="email" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                </div>
+                <div class="contcol col-sm-6 col-md-6 mb-2">
+                    <label for="Mensaje" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="Mensaje" rows="3"></textarea>
+                </div>
+                <div class="contcol col-sm-12 mt-5" id="botonenviar">
+                    <button type="button" class="btn btn-outline-primary text-center ">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>--> 
+    
+    </div>
+    <div class="container" id="proyecto">
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="proyectosold">
+            <div class="col">
+              <div class="card h-100" class="animacion">
+                <img src="{% static 'img/login.png' %}" class="card-img-top" alt="....">
+                <div class="card-body">
+                  <h5 class="card-title">Login</h5>
+                  <p class="card-text">Este es el login creado para un servicio web de taller mecánico.</p>
+                   <a href="./Taller-web/login.html" <button type="button" class="btn btn-outline-primary text-center ">Ver Detalle</button> >></a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static 'img/APICLIMA.png' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">API CLIMA</h5>
+                  <p class="card-text">Este es un codigo conectado a una API del clima. Del cual traemos diferentes tipo de datos en JSON</p>
+                  <a href="./API-clima/index.html" <button type="button" class="btn btn-outline-primary text-center ">Ver Detalle</button> ></a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="{% static 'img/CALCULADORA.png' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">App Calculadora con JS/CSS/HTML</h5>
+                  <p class="card-text">Esta es una app en la cual emulamos una calculadora usando JavaScript</p>
+                  <a href="./CALCU-js/index.html" <button type="button" class="btn btn-outline-primary text-center ">Ver Detalle</button> ></a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+    </div>
+    
+    
+
+
+    <section id="projects" class="py-5 projects">
+        <div class="container">
+            <h2 class="text-center">Proyectos Actuales</h2>
+            <div class="row">
+                {% for proyecto in proyectos%}
+                <div class="col-md-4">
+                    <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{proyecto.titulo}}</h5>
+                        <p class="card-text">{{proyecto.descripcion}}</p>
+                        <a href="{{ proyecto.link_sitio}}" class="btn btn-outline-primary text-center" target="_blank">View Site</a>
+                        <a href="{{ proyecto.link_repositorio}}" class="btn btn-sm btn-outline-primary text-center" target="_blank">View Repo</a>
+                        <a href="{% url 'proyecto_detalle' proyecto.pk %}" class="btn btn-info">Ver Detalle</a> <!-- Nuevo botón -->
+                    </div>
+
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+    <div class="footer">
+        <footer class="text-white text-center py-3 footer-black">
+            <p>&copy; 2024 Maximiliano Lombardo Aburto <i class="fa-brands fa-dev" id="fa"></i><strong>. Todos los derechos reservados.</strong></p>
+        </footer>
+        
+    </div>
+    
+    <!-- Script del gráfico de habilidades -->
+    <!-- Script del gráfico de habilidades -->
+    <script>
+        // Datos de las habilidades técnicas
+        const skillsData = [
+            { name: "SQL", value: 80 },
+            { name: "Python", value: 50 },
+            { name: "Java", value: 70 },
+            { name: "JavaScript", value: 85 },
+            { name: "HTML", value: 75 },
+            { name: "CSS", value: 70 }
+        ];
+
+        // Escala para el eje x
+        const xScale = d3.scaleLinear()
+            .domain([0, d3.max(skillsData, d => d.value)])
+            .range([0, 300]);
+
+        // SVG
+        const svg = d3.select("#skills-chart");
+
+        // Barras
+        svg.selectAll("rect")
+            .data(skillsData)
+            .enter()
+            .append("rect")
+            .attr("x", 100)
+            .attr("y", (d, i) => i * 50)
+            .attr("width", d => xScale(d.value))
+            .attr("height", 40)
+            .attr("fill", "steelblue");
+
+        // Texto
+        svg.selectAll("text")
+            .data(skillsData)
+            .enter()
+            .append("text")
+            .attr("x", 10)
+            .attr("y", (d, i) => i * 50 + 25)
+            .text(d => d.name)
+            .attr("alignment-baseline", "middle")
+            .attr("fill", "white"); /* Cambia el color del texto a blanco */
+        
+        // Fondo del gráfico
+        svg.attr("style", "background-color: rgba(0, 0, 0, 0.5);"); /* Fondo semitransparente */
+    </script>
+
+    <!-- Script para ocultar la sección del gráfico en pantallas pequeñas -->
+    {% bootstrap_javascript%}
+    <script> src = "{% static 'js/action.js'%}"</script>
+    
+
+</body>
+</html>

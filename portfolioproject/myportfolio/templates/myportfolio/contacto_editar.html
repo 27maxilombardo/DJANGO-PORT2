@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <div class="container mt-5" >
+        <h2> ¡ Gracias por tu mensaje !</h2>
+        <form method="POST" class="needs-validation" novalidate>
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'contacto_lista' %}" class="btn btn-secondary">Cancelar</a>
+
+        </form>
+        
+    </div>
+
+
+{% endblock %}

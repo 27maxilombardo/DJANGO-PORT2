@@ -1,0 +1,242 @@
+*{
+    background-color: black;
+    color: aliceblue;
+}
+/* Estilo para el texto */
+.container,
+.card-title,
+.card-text,
+.text-start,
+.text-center,
+.text-end,
+.text-sm-end,
+.text-md-end,
+.text-lg-end,
+.text-xl-end,
+.text-xxl-end {
+    color: white; /* Cambia el color del texto a blanco */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: black; /* Cambia el color de fondo a negro */
+    margin: 0px;
+    border: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    
+}
+
+.navbar-nav .nav-link {
+    color: white !important; /* Cambia el color del texto a blanco */
+}
+
+/* Estilos para el contenido dentro de la clase card-body */
+.card-body {
+    color: white; /* Cambia el color del texto a blanco */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar-brand{
+    color: white;
+}
+
+
+
+
+/* Estilo para el fondo */
+body {
+    background-color: black; /* Cambia el color de fondo a negro */
+}
+
+
+
+/*animacion de fondo*/
+body {
+    background-image: url( ../img/pp.jpg );
+    background-size: cover;
+    background-position: center;
+    animation: animateBackground 30s linear infinite; 
+}
+
+
+
+@keyframes animateBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+.container{
+    margin-top: 80px;/*PRIMER MARGIN DE LA NAV A LA CARD*/
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    
+}
+
+.descripcion{
+    justify-content: center;
+    color: ghostwhite;
+    text-decoration: dotted;
+    text-shadow: #CCCCCC;
+    padding: 30px;
+}
+
+.container-fluid{
+    padding: 10px;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+.contc{
+    margin-top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 60px;
+    margin-right: 20px;
+    justify-content: center;
+    
+    
+}
+
+.contenido{
+    margin-right:30px;
+    padding: 30px;
+}
+.card-img-top{
+    margin: 0px;
+}
+.row{
+    margin-right: 30px;
+}
+.footer{
+    margin-top: 30px;
+}
+/* Animación para el contenido */
+.contenido {
+    animation: fadeInUp 1s ease-out;
+    margin-left: 55px;
+    border: 0px;
+    padding: 30px;
+    
+}
+.projects, .container,.row, .contenido, .proyecto , .text-center , .titlecont , .descripcion , .col-md-6, .col-md-3 , .contcol ,.contactForm ,.col ,.form-label ,.footer , .navbar-brand, .fa-solid ,.contact111, .contact, .contactonuevo1, .mb-3, .form-label, .ult{
+
+    background-color: transparent !important;
+}
+/* Efecto de transformación para las tarjetas */
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.07);
+}
+
+/* Efecto de transformación para los botones */
+.btn {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+}
+
+
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para el pie de página */
+.footer-black {
+    animation: fadeIn 4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/*EL RESPONSIVE EMPIEZA AQUI*/
+@media screen and (max-width:1328px){
+    .container-fluid{
+        background-color: black;
+        background-position: 50%;
+        align-items: baseline;
+        
+    }
+    .container{
+        background-color: black;
+        background-position: 50%;
+    }
+    .contc{
+        background-color: black;
+        background-position: 50%;
+    }
+}
+
+@media screen and (max-width: 790px){
+    .contenido {
+        /* Estilos para el contenedor */
+        background-color: black; /* Cambia el color de fondo */
+        color: black; /* Cambia el color del texto */
+        padding: 0px; /* Agrega relleno alrededor del contenido */
+        margin-top: 50px; /* Ajusta el margen superior */
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif /* Cambia la fuente del texto */;
+        padding-left: 100px;
+        margin-block: 40px;
+    }
+    
+    .contenido .card {
+        /* Estilos para las tarjetas dentro del contenedor */
+        background-color: orange; /* Cambia el color de fondo de las tarjetas */
+        border-radius: 10px; /* Agrega bordes redondeados a las tarjetas */
+        padding: 0px; /* Agrega relleno dentro de las tarjetas */
+        margin-bottom: 20px; /* Ajusta el margen inferior de las tarjetas */
+        align-items: center;
+        
+    }
+    
+    .contenido .card-title {
+        /* Estilos para los títulos de las tarjetas */
+        color: #FFA500; /* Cambia el color del texto del título */
+        font-size: 24px; /* Cambia el tamaño del texto del título */
+        font-weight: bold; /* Hace que el texto del título sea negrita */
+    }
+    
+    .contenido .card-text {
+        /* Estilos para el texto dentro de las tarjetas */
+        color: #CCCCCC; /* Cambia el color del texto */
+        font-size: 16px; /* Cambia el tamaño del texto */
+    }
+    /*AQUI ES LA PARTE EN LA QUE OCULTO PARA TELEFONO MOVILES */
+    .container-fluid{
+        display: none;
+    }
+    .descripcion{
+        color: #FFA500;
+    }
+    .contc .titlecont{
+        color: #FFA500;
+    }
+    .contc .form-label{
+        color: #FFA500;
+    }
+    body {
+        background-image: url( ../img/fondo3d.jpg );
+        background-size: cover;
+        background-position: center;
+        animation: animateBackground 220s linear infinite; 
+    }
+}
